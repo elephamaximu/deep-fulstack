@@ -1,5 +1,5 @@
 import Head from 'next/head';
-export function Header() {
+export const Header = () => {
 	return (
 		<Head>
 			<meta charSet='utf-8' />
@@ -12,4 +12,4 @@ export function Header() {
 			<title>Recipe App</title>
 		</Head>
 	);
-}
+};

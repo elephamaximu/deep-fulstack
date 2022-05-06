@@ -1,16 +1,15 @@
-import { Header } from '@/components/Header';
-import Nav from '@/components/Nav';
+import 'bootstrap/dist/css/bootstrap.css';
 import React from 'react';
-import 'semantic-ui-css/semantic.min.css';
+import PropTypes from 'prop-types';
+import { wrapper } from '@/modules/store';
+import withReduxSaga from 'next-redux-saga';
 
-const App = ({ Component }) => {
+const App = ({ Component, pageProps }) => {
 	return (
-		<React.Fragment>
-			<Header />
-			<Nav />
-			<Component />
-		</React.Fragment>
+		<div>
+			<Component {...pageProps} />
+		</div>
 	);
 };
 
-export default App;
+export default wrapper.withRedux(withReduxSaga(App));

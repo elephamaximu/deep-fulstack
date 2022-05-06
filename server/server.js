@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import express from 'express';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
+import cors from 'cors';
 
 import db from './app/models/index.js';
 import applyDotenv from './app/lambdas/applyDotenv.js';
@@ -14,6 +15,7 @@ async function startServer() {
 	const { mongoUri, port, jwtSecret, cookieSecret } = applyDotenv(dotenv);
 	app.use(express.urlencoded({ extended: true }));
 	app.use(express.json());
+	app.use(cors());
 	// app.set('trust proxy', true);
 	app.use(
 		cookieSession({
